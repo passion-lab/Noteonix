@@ -1,0 +1,178 @@
+@import url('reset.css');
+@import url('default.css');
+
+
+/* 
+#toolbar {
+    background: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+#toolbar button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#editor
+    min-height: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+} 
+*/
+
+body > .background-container {
+    height: 100vh;
+    width: 100%;
+    background: hsl(0, 0%, 90%);
+}
+
+body > .background-container > * {
+    padding-top: 2vh;
+    padding-bottom: 10vh;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* Header section */
+
+.background-container header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+}
+
+/* Editing area */
+
+.background-container main {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main form input {
+    max-width: 600px;
+    width: 80%;
+    min-width: 280px;
+    text-align: center;
+}
+
+main form #noteTitle {
+    padding: 5px 10px;
+    font-size: calc(var(--base-font-size) * 2);
+    font-weight: 200;
+    border-bottom: 1px dotted transparent;
+}
+
+main form #noteTitle::placeholder {
+    font-weight: 100;
+    color: lightgrey;
+}
+
+main form #noteTitle:focus,
+main form #noteTitle:active {
+    border-bottom: 1px solid black;
+}
+
+main form #helpTitle {
+    margin-top: 10px;
+    font-size: calc(var(--base-font-size) * .5);
+    font-style: italic;
+    cursor: auto;
+    color: grey;
+    transition: opacity .5s ease .1s;
+}
+
+/* Footer section */
+
+.background-container footer {
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background: linear-gradient(to top, white, transparent); */
+}
+
+footer:hover #handle.hide {
+    opacity: 1;
+}
+
+footer:hover #notes-container.hide {
+    opacity: 1;
+    user-select: auto;
+}
+
+footer #handle {
+    height: 5px;
+    width: 25px;
+    border-radius: 5px;
+    background: darkgrey;
+    margin-bottom: 10px;
+    transition: opacity .5s ease .1s;
+}
+
+footer #notes-container {
+    width: 70vw;
+    transition: opacity .5s ease .1s;
+}
+
+#notes-container .note {
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+#notes-container .note .info {
+    text-align: center;
+    color: grey;
+}
+
+#notes-container .note .info .dd {
+    font-size: 1.3rem;
+}
+
+#notes-container .note .info .mmm-yy {
+    font-size: .7em;
+    text-transform: uppercase;
+}
+
+#notes-container .note .content h6 {
+    font-size: 1rem;
+    color: darkgrey;
+}
+
+#notes-container .note .content p {
+    font-size: .9rem;
+    color: grey;
+}
+
+footer .overlay {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, hsl(0, 0%, 90%) 50%, transparent);
+}

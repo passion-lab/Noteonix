@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: serif;
+}
+
+:root {
+    --base-font-size: calc(1rem + 1vw);
+}
+
+::selection {
+    background: rgba(112, 128, 144, 0.25);
+    background-color: rgba(112, 128, 144, 0.25);
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    background: var(--bg-default);
+    overflow: hidden;
+}
+
+a,
+button,
+input[type="submit"] {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+    background: none;
+}

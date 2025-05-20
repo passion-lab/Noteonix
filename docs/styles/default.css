@@ -1,0 +1,10 @@
+
+.hide {
+    opacity: 0;
+    user-select: none;
+}
+
+.unhide {
+    opacity: 1;
+    user-select: auto;
+}
