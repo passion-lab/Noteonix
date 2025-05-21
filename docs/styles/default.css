@@ -1,3 +1,81 @@
+:root {
+    /* Colors */
+    /** Primary colors: Brand, Icons, Buttons */
+    --clr-primary-a0: #4f8dff;
+    --clr-primary-a10: #4574d0;
+    --clr-primary-a20: #3a5ca2;
+    --clr-primary-a30: #2f4577;
+    --clr-primary-a40: #232f4f;
+    --clr-primary-a50: #161b29;
+
+    /** Accent colors: Highlights, Links, CTAs */
+    --clr-accent-a0: #00c9a7;
+    --clr-accent-a10: #17a48a;
+    --clr-accent-a20: #1d816d;
+    --clr-accent-a30: #1d6051;
+    --clr-accent-a40: #194037;
+    --clr-accent-a50: #12231e;
+
+    /** Danger colors */
+    --clr-danger-a0: #b41c2b;
+    --clr-danger-a10: #851d22;
+    --clr-danger-a20: #581919;
+    --clr-danger-a30: #2f1310;
+
+    /** Success colors */
+    --clr-success-a0: #009f42;
+    --clr-success-a10: #167533;
+    --clr-success-a20: #184d25;
+    --clr-success-a30: #132916;
+
+    /** Warning colors */
+    --clr-warning-a0: #f0ad4e;
+    --clr-warning-a10: #af7f3c;
+    --clr-warning-a20: #71532a;
+    --clr-warning-a30: #392b19;
+
+    /** Info colors */
+    --clr-info-a0: #388cfa;
+    --clr-info-a10: #3267b5;
+    --clr-info-a20: #284475;
+    --clr-info-a30: #1a253b;
+
+    /** Neutral colors */
+    --clr-neutral-a0: #ffffff;
+    --clr-neutral-a10: #c6c6c6;
+    --clr-neutral-a20: #919191;
+    --clr-neutral-a30: #5e5e5e;
+    --clr-neutral-a40: #303030;
+    --clr-neutral-a50: #000000;
+
+    /** Text colors */
+    --clr-text-light: #FAFAFA;
+    --clr-text-dark: #1F1F1F;
+    --clr-text-pri-light: #F1F1F1;
+    --clr-text-sec-light: #A2A2A2;
+    --clr-text-pri-dark: #2E2E33;
+    --clr-text-sec-dark: #6A6A6A;
+
+    /** Background colors */
+    --clr-bg1-light: #FAFAFA;
+    --clr-bg2-light: #F9F9FB;
+    --clr-bg1-dark: #1C1C1E;
+    --clr-bg2-dark: #1E1E26;
+
+    /** Surface colors: Pannel, Cards, Modals */
+    --clr-surface-light: #ECEEF3;
+    --clr-surface-dark: #2A2A38;
+
+    /** Other colors  */
+    --clr-line-light: #E0E0E0;
+    --clr-line-dark: #333333;
+
+    /* Units */
+    --base-font-size: calc(1rem + 1vw);
+    --base-border-radius: 8px;
+    --clr: #33C3F0;
+    --clr: #29E3B1;
+}
 
 .hide {
     opacity: 0;
