@@ -82,6 +82,7 @@ main form #noteTitle {
     font-size: calc(var(--base-font-size) * 2);
     font-weight: 200;
     border-bottom: 1px solid transparent;
+    color: var(--clr-text-pri-dark);
 }
 
 main form #noteTitle::placeholder {
