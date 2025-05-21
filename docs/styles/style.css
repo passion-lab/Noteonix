@@ -81,7 +81,7 @@ main form #noteTitle {
     padding: 5px 10px;
     font-size: calc(var(--base-font-size) * 2);
     font-weight: 200;
-    border-bottom: 1px dotted transparent;
+    border-bottom: 1px solid transparent;
 }
 
 main form #noteTitle::placeholder {
@@ -95,9 +95,8 @@ main form #noteTitle:hover {
 
 main form #noteTitle:focus,
 main form #noteTitle:active {
-    border-bottom: 1px solid var(--clr-line-dark);
+    border-bottom: 1px dotted var(--clr-line-dark);
 }
-
 
 main form #helpTitle {
     margin-top: 10px;
