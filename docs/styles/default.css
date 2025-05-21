@@ -73,8 +73,6 @@
     /* Units */
     --base-font-size: calc(1rem + 1vw);
     --base-border-radius: 8px;
-    --clr: #33C3F0;
-    --clr: #29E3B1;
 }
 
 .hide {
