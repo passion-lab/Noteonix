@@ -1,3 +1,5 @@
+// Note Title
+// ------------------------------------------------
 
 const noteTitle = document.getElementById('noteTitle');
 const helpTitle = document.getElementById('helpTitle');
@@ -35,6 +37,72 @@ noteTitle.addEventListener('keydown', (e) => {
         console.log(noteTitle.value);
     }
 })
+
+
+// Existing Notes
+// ------------------------------------------------
+
+const footer = document.querySelector('footer');
+const notesContainer = document.getElementById('notes-container');
+
+let isScrolling = false;
+let startY = 80; // Starting position percentage
+let currentY = startY;
+const minY = 10; // Minimum position percentage (how high it can go)
+const scrollFactor = 10;
+
+// Handle mouse wheel scrolling over the footer
+footer.addEventListener('wheel', (e) => {
+    e.preventDefault(); // Prevent default scroll behavior
+    
+    if (e.deltaY < 0) {
+        // Scrolling up - move footer up
+        currentY = Math.max(currentY - scrollFactor, minY);
+    } else {
+        // Scrolling down - move footer down
+        currentY = Math.min(currentY + scrollFactor, startY);
+    }
+    
+    footer.style.top = `${currentY}%`;
+});
+
+
+// Handle touch events for mobile
+let touchStartY = 0;
+
+footer.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+    e.preventDefault();
+});
+
+footer.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const touchY = e.touches[0].clientY;
+    const diff = touchStartY - touchY;
+    
+    if (diff > 0) {
+        // Swiping up - move footer up
+        currentY = Math.max(currentY - 1, minY);
+    } else {
+        // Swiping down - move footer down
+        currentY = Math.min(currentY + 1, startY);
+    }
+    
+    footer.style.top = `${currentY}%`;
+    touchStartY = touchY;
+});
+
+
+// Reset footer position when clicking outside
+document.addEventListener('click', (e) => {
+    if (!footer.contains(e.target) && currentY !== startY) {
+        currentY = startY;
+        // footer.style.transition = 'top 0.5s ease-out';
+        footer.style.top = `${currentY}%`;
+    }
+});
+
+
 
 function format(command, value = null) {
     document.execCommand(command, true, value);
