@@ -44,6 +44,7 @@ noteTitle.addEventListener('keydown', (e) => {
 // Existing Notes
 // ------------------------------------------------
 
+const titleForm = document.getElementById('titleForm');
 const footer = document.querySelector('footer');
 const notesContainer = document.getElementById('notes-container');
 
@@ -65,6 +66,17 @@ function getDynamicMinY() {
     return Math.max(minY, startY + 10 - (notesHeight / viewportHeight * 100));
 }
 
+// Function to update noteTitle opacity based on footer position
+function formVisibility() {
+    if (currentY > startY - 10) {
+        // Unhide the form while scrolling down
+        titleForm.classList.replace('hide', 'unhide');
+    } else {
+        // Hide the form while scrolling up
+        titleForm.classList.replace('unhide', 'hide');
+    }
+}
+
 // Handle mouse wheel scrolling over the footer
 footer.addEventListener('wheel', (e) => {
     e.preventDefault(); // Prevent default scroll behavior
@@ -80,9 +92,9 @@ footer.addEventListener('wheel', (e) => {
         currentY = Math.min(currentY + scrollFactor, startY);
     }
     
+    formVisibility();
     footer.style.top = `${currentY}%`;
 });
-
 
 // Handle touch events for mobile
 let touchStartY = 0;
@@ -108,6 +120,7 @@ footer.addEventListener('touchmove', (e) => {
         currentY = Math.min(currentY + 1, startY);
     }
     
+    formVisibility();
     footer.style.top = `${currentY}%`;
     touchStartY = touchY;
 });
@@ -116,9 +129,9 @@ footer.addEventListener('touchmove', (e) => {
 window.addEventListener('resize', () => {
     // If footer is already scrolled up, adjust its position based on new calculations
     if (currentY < startY) {
-        const dynamicMinY = getDynamicMinY();
-        // currentY = Math.max(currentY, dynamicMinY);
-        currentY = dynamicMinY;
+        currentY = getDynamicMinY();
+        // Reset visibility and position
+        formVisibility();
         footer.style.top = `${currentY}%`;
     }
 });
@@ -127,6 +140,8 @@ window.addEventListener('resize', () => {
 document.addEventListener('click', (e) => {
     if (!footer.contains(e.target) && currentY !== startY) {
         currentY = startY;
+        // Reset visibility and position
+        formVisibility();
         footer.style.top = `${currentY}%`;
     }
 });
