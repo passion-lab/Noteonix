@@ -115,10 +115,10 @@ footer.addEventListener('touchmove', (e) => {
     
     if (diff > 0) {
         // Swiping up - move footer up
-        currentY = Math.max(currentY - 1, dynamicMinY);
+        currentY = Math.max(currentY - scrollFactor, dynamicMinY);
     } else {
         // Swiping down - move footer down
-        currentY = Math.min(currentY + 1, startY);
+        currentY = Math.min(currentY + scrollFactor, startY);
     }
     
     formVisibility();
