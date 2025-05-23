@@ -114,7 +114,7 @@ footer:hover #notes-container.hide {
 footer #handle {
     margin: 10px auto;
     height: 5px;
-    width: 25px;
+    width: calc(var(--base-font-size) * 1.5);
     border-radius: var(--base-border-radius);
     background: var(--clr-line-light);
     cursor: pointer;
@@ -137,6 +137,13 @@ footer #notes-container {
     justify-content: flex-start;
     gap: 1rem;
     overflow: hidden;
+}
+
+#notes-container .note:hover {
+    /* TODO: Glass effect to be added here */
+    background: linear-gradient(90deg, transparent, var(--clr-surface-light));
+    cursor: pointer;
+    opacity: 1;
 }
 
 #notes-container .note .info {
