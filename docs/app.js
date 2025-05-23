@@ -16,6 +16,7 @@ noteTitle.addEventListener('input', (e) => {
     if (inputTitle.length >= 1) {
         helpTitle.classList.remove('hide');
         helpTitle.classList.add('unhide');
+        helpTitle.removeAttribute('disabled');
 
         footerHandle.classList.remove('unhide');
         footerHandle.classList.add('hide');
@@ -24,6 +25,7 @@ noteTitle.addEventListener('input', (e) => {
     } else {
         helpTitle.classList.remove('unhide');
         helpTitle.classList.add('hide');
+        helpTitle.setAttribute('disabled');
 
         footerHandle.classList.remove('hide');
         footerHandle.classList.add('unhide');
