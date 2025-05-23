@@ -6,31 +6,24 @@ const helpTitle = document.getElementById('helpTitle');
 const footerHandle = document.getElementById('handle');
 const footerNotes = document.getElementById('notes-container');
 
+let titleLength = 0;
+
 
 noteTitle.addEventListener('input', (e) => {
     let inputTitle = e.target.value;
+    titleLength = inputTitle.length;
 
     // let titleWidth = noteTitle.clientWidth;
     // let inputTitleSize = parseInt(window.getComputedStyle(e.target).fontSize.slice(0, -2));
     
-    if (inputTitle.length >= 1) {
-        helpTitle.classList.remove('hide');
-        helpTitle.classList.add('unhide');
-        helpTitle.removeAttribute('disabled');
-
-        footerHandle.classList.remove('unhide');
-        footerHandle.classList.add('hide');
-        footerNotes.classList.remove('unhide');
-        footerNotes.classList.add('hide');
+    if (titleLength >= 1) {
+        helpTitle.classList.replace('hide', 'unhide');
+        footerHandle.classList.replace('unhide', 'hide');
+        footerNotes.classList.replace('unhide', 'hide');
     } else {
-        helpTitle.classList.remove('unhide');
-        helpTitle.classList.add('hide');
-        helpTitle.setAttribute('disabled');
-
-        footerHandle.classList.remove('hide');
-        footerHandle.classList.add('unhide');
-        footerNotes.classList.remove('hide');
-        footerNotes.classList.add('unhide');
+        helpTitle.classList.replace('unhide', 'hide');
+        footerHandle.classList.replace('hide', 'unhide');
+        footerNotes.classList.replace('hide', 'unhide');
     }
 })
 
@@ -46,7 +39,6 @@ noteTitle.addEventListener('keydown', (e) => {
 
 const titleForm = document.getElementById('titleForm');
 const footer = document.querySelector('footer');
-const notesContainer = document.getElementById('notes-container');
 
 let isScrolling = false;
 let startY = 80; // Starting position percentage
@@ -54,11 +46,12 @@ let currentY = startY;
 const minY = 10; // Minimum position percentage (how high it can go)
 const scrollFactor = 10;
 
+
 // Function to calculate dynamic minimum Y position
 // to ensures the bottom of the notes container is at the bottom of the viewport
 function getDynamicMinY() {
     // Get the total height of the notes container containing all notes
-    const notesHeight = notesContainer.scrollHeight;
+    const notesHeight = footerNotes.scrollHeight;
     // Get the viewport height
     const viewportHeight = window.innerHeight;
     
@@ -66,14 +59,22 @@ function getDynamicMinY() {
     return Math.max(minY, startY + 10 - (notesHeight / viewportHeight * 100));
 }
 
-// Function to update noteTitle opacity based on footer position
+// Function to update title form visibility based on footer position
 function formVisibility() {
     if (currentY > startY - 10) {
         // Unhide the form while scrolling down
         titleForm.classList.replace('hide', 'unhide');
+        if (titleLength >= 1) {
+            footerHandle.classList.replace('unhide', 'hide');
+            footerNotes.classList.replace('unhide', 'hide');
+        }
     } else {
         // Hide the form while scrolling up
         titleForm.classList.replace('unhide', 'hide');
+        if (titleLength >= 1) {
+            footerHandle.classList.replace('hide', 'unhide');
+            footerNotes.classList.replace('hide', 'unhide');
+        }
     }
 }
 
