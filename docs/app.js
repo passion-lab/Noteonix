@@ -51,13 +51,28 @@ let currentY = startY;
 const minY = 10; // Minimum position percentage (how high it can go)
 const scrollFactor = 10;
 
+// Function to calculate dynamic minimum Y position
+// to ensures the bottom of the notes container is at the bottom of the viewport
+function getDynamicMinY() {
+    // Get the total height of the notes container containing all notes
+    const notesHeight = notesContainer.scrollHeight;
+    // Get the viewport height
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate the minimum Y position needed to show all notes
+    return Math.max(minY, startY + 10 - (notesHeight / viewportHeight * 100));
+}
+
 // Handle mouse wheel scrolling over the footer
 footer.addEventListener('wheel', (e) => {
     e.preventDefault(); // Prevent default scroll behavior
     
+    // Get dynamic minimum Y position
+    const dynamicMinY = getDynamicMinY();
+    
     if (e.deltaY < 0) {
         // Scrolling up - move footer up
-        currentY = Math.max(currentY - scrollFactor, minY);
+        currentY = Math.max(currentY - scrollFactor, dynamicMinY);
     } else {
         // Scrolling down - move footer down
         currentY = Math.min(currentY + scrollFactor, startY);
@@ -79,10 +94,13 @@ footer.addEventListener('touchmove', (e) => {
     e.preventDefault();
     const touchY = e.touches[0].clientY;
     const diff = touchStartY - touchY;
+
+    // Get dynamic minimum Y position
+    const dynamicMinY = getDynamicMinY();
     
     if (diff > 0) {
         // Swiping up - move footer up
-        currentY = Math.max(currentY - 1, minY);
+        currentY = Math.max(currentY - 1, dynamicMinY);
     } else {
         // Swiping down - move footer down
         currentY = Math.min(currentY + 1, startY);
@@ -92,12 +110,21 @@ footer.addEventListener('touchmove', (e) => {
     touchStartY = touchY;
 });
 
+// Update dynamic minimum Y position when window is resized
+window.addEventListener('resize', () => {
+    // If footer is already scrolled up, adjust its position based on new calculations
+    if (currentY < startY) {
+        const dynamicMinY = getDynamicMinY();
+        // currentY = Math.max(currentY, dynamicMinY);
+        currentY = dynamicMinY;
+        footer.style.top = `${currentY}%`;
+    }
+});
 
 // Reset footer position when clicking outside
 document.addEventListener('click', (e) => {
     if (!footer.contains(e.target) && currentY !== startY) {
         currentY = startY;
-        // footer.style.transition = 'top 0.5s ease-out';
         footer.style.top = `${currentY}%`;
     }
 });
