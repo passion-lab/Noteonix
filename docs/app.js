@@ -15,6 +15,7 @@ let titleLength = 0;
 let isScrolling = false;
 let startY = 80; // Starting position percentage
 let currentY = startY;
+let touchStartY = 0; // Handle touch events for mobile
 
 
 // Note Title
@@ -93,19 +94,16 @@ footer.addEventListener('wheel', (e) => {
     
     if (e.deltaY < 0) {
         // Scrolling up - move footer up
-        currentY = Math.max(currentY - scrollFactor, dynamicMinY);
+        currentY = Math.max(currentY - scrollFactor / 2, dynamicMinY);
     } else {
         // Scrolling down - move footer down
         const maxPosition = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
-        currentY = Math.min(currentY + scrollFactor, maxPosition);
+        currentY = Math.min(currentY + scrollFactor / 2, maxPosition);
     }
     
     formVisibility();
     footer.style.top = `${currentY}%`;
 });
-
-// Handle touch events for mobile
-let touchStartY = 0;
 
 footer.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
