@@ -1,4 +1,7 @@
+// Variables
+// ------------------------------------------------
 
+// HTML DOMs
 const noteTitle = document.getElementById('noteTitle');
 const helpTitle = document.getElementById('helpTitle');
 const footerHandle = document.getElementById('handle');
@@ -6,11 +9,13 @@ const footerNotes = document.getElementById('notes-container');
 const titleForm = document.getElementById('titleForm');
 const footer = document.querySelector('footer');
 
+// Constant variables
 const minY = 10; // Minimum position percentage (how high it can go)
 const scrollFactor = 10;
 const defaultFooterPosition = 80; // Default position at 80%
 const hiddenFooterPosition = 92; // Hidden position at 92%
 
+// Changable variables
 let titleLength = 0;
 let isScrolling = false;
 let startY = 80; // Starting position percentage
@@ -152,7 +157,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Handle hover behavior for footer
+// Handle hover behavior for footer while input title field not empty
 footer.addEventListener('mouseover', () => {
     if (titleLength > 0 && currentY >= defaultFooterPosition) {
         currentY = defaultFooterPosition;
