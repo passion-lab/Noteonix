@@ -1,13 +1,24 @@
-// Note Title
-// ------------------------------------------------
 
 const noteTitle = document.getElementById('noteTitle');
 const helpTitle = document.getElementById('helpTitle');
 const footerHandle = document.getElementById('handle');
 const footerNotes = document.getElementById('notes-container');
+const titleForm = document.getElementById('titleForm');
+const footer = document.querySelector('footer');
+
+const minY = 10; // Minimum position percentage (how high it can go)
+const scrollFactor = 10;
+const defaultFooterPosition = 80; // Default position at 80%
+const hiddenFooterPosition = 92; // Hidden position at 92%
 
 let titleLength = 0;
+let isScrolling = false;
+let startY = 80; // Starting position percentage
+let currentY = startY;
 
+
+// Note Title
+// ------------------------------------------------
 
 noteTitle.addEventListener('input', (e) => {
     let inputTitle = e.target.value;
@@ -18,13 +29,18 @@ noteTitle.addEventListener('input', (e) => {
     
     if (titleLength >= 1) {
         helpTitle.classList.replace('hide', 'unhide');
-        footerHandle.classList.replace('unhide', 'hide');
+        // footerHandle.classList.replace('unhide', 'hide');
+        footer.style.top = `${hiddenFooterPosition}%`;
         footerNotes.classList.replace('unhide', 'hide');
     } else {
         helpTitle.classList.replace('unhide', 'hide');
-        footerHandle.classList.replace('hide', 'unhide');
+        // footerHandle.classList.replace('hide', 'unhide');
+        footer.style.top = `${defaultFooterPosition}%`;
         footerNotes.classList.replace('hide', 'unhide');
     }
+
+    // Update currentY to match the footer's position
+    currentY = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
 })
 
 noteTitle.addEventListener('keydown', (e) => {
@@ -36,16 +52,6 @@ noteTitle.addEventListener('keydown', (e) => {
 
 // Existing Notes
 // ------------------------------------------------
-
-const titleForm = document.getElementById('titleForm');
-const footer = document.querySelector('footer');
-
-let isScrolling = false;
-let startY = 80; // Starting position percentage
-let currentY = startY;
-const minY = 10; // Minimum position percentage (how high it can go)
-const scrollFactor = 10;
-
 
 // Function to calculate dynamic minimum Y position
 // to ensures the bottom of the notes container is at the bottom of the viewport
@@ -61,20 +67,20 @@ function getDynamicMinY() {
 
 // Function to update title form visibility based on footer position
 function formVisibility() {
-    if (currentY > startY - 10) {
-        // Unhide the form while scrolling down
+    // Always show the form when footer is at default or hidden position
+    if (currentY >= defaultFooterPosition) {
         titleForm.classList.replace('hide', 'unhide');
-        if (titleLength >= 1) {
-            footerHandle.classList.replace('unhide', 'hide');
-            footerNotes.classList.replace('unhide', 'hide');
-        }
     } else {
-        // Hide the form while scrolling up
+        // Hide the form when footer is scrolled up
         titleForm.classList.replace('unhide', 'hide');
-        if (titleLength >= 1) {
-            footerHandle.classList.replace('hide', 'unhide');
-            footerNotes.classList.replace('hide', 'unhide');
-        }
+    }
+    
+    // Show notes when footer is visible
+    if (currentY <= defaultFooterPosition) {
+        footerNotes.classList.replace('hide', 'unhide');
+    } else if (titleLength >= 1) {
+        // Hide notes when footer is at hidden position and title has text
+        footerNotes.classList.replace('unhide', 'hide');
     }
 }
 
@@ -90,7 +96,8 @@ footer.addEventListener('wheel', (e) => {
         currentY = Math.max(currentY - scrollFactor, dynamicMinY);
     } else {
         // Scrolling down - move footer down
-        currentY = Math.min(currentY + scrollFactor, startY);
+        const maxPosition = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
+        currentY = Math.min(currentY + scrollFactor, maxPosition);
     }
     
     formVisibility();
@@ -118,7 +125,8 @@ footer.addEventListener('touchmove', (e) => {
         currentY = Math.max(currentY - scrollFactor, dynamicMinY);
     } else {
         // Swiping down - move footer down
-        currentY = Math.min(currentY + scrollFactor, startY);
+        const maxPosition = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
+        currentY = Math.min(currentY + scrollFactor, maxPosition);
     }
     
     formVisibility();
@@ -129,7 +137,7 @@ footer.addEventListener('touchmove', (e) => {
 // Update dynamic minimum Y position when window is resized
 window.addEventListener('resize', () => {
     // If footer is already scrolled up, adjust its position based on new calculations
-    if (currentY < startY) {
+    if (currentY < defaultFooterPosition) {
         currentY = getDynamicMinY();
         // Reset visibility and position
         formVisibility();
@@ -139,11 +147,27 @@ window.addEventListener('resize', () => {
 
 // Reset footer position when clicking outside
 document.addEventListener('click', (e) => {
-    if (!footer.contains(e.target) && currentY !== startY) {
-        currentY = startY;
-        // Reset visibility and position
-        formVisibility();
+    if (!footer.contains(e.target)) {
+        currentY = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
         footer.style.top = `${currentY}%`;
+        formVisibility();
+    }
+});
+
+// Handle hover behavior for footer
+footer.addEventListener('mouseover', () => {
+    if (titleLength > 0 && currentY >= defaultFooterPosition) {
+        currentY = defaultFooterPosition;
+        footer.style.top = `${currentY}%`;
+        footerNotes.classList.replace('hide', 'unhide');
+    }
+});
+
+footer.addEventListener('mouseout', () => {
+    if (titleLength > 0 && currentY >= defaultFooterPosition) {
+        currentY = hiddenFooterPosition;
+        footer.style.top = `${currentY}%`;
+        footerNotes.classList.replace('unhide', 'hide');
     }
 });
 
