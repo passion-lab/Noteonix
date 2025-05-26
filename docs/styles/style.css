@@ -46,8 +46,18 @@ main form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: opacity .5s ease;
+    transition: all .5s ease;
 }
+
+main form.hide {
+    scale: 0.8;
+}
+
+main form.unhide {
+    scale: 1;
+}
+
+/* 1. Title input */
 
 main form input {
     max-width: 600px;
@@ -85,6 +95,15 @@ main form #helpTitle {
     cursor: auto;
     color: grey;
     transition: opacity .5s ease .1s;
+}
+
+/* 2. Note editor */
+
+main #noteEditor {
+    display: none;
+    height: 90%;
+    width: 90%;
+    background: lightcoral;
 }
 
 /* Footer section */
