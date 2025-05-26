@@ -18,6 +18,7 @@ const hiddenFooterPosition = 92; // Hidden position at 92%
 // Changable variables
 let titleLength = 0;
 let isScrolling = false;
+let isSubmitted = false;
 let startY = 80; // Starting position percentage
 let currentY = startY;
 let touchStartY = 0; // Handle touch events for mobile
@@ -51,7 +52,7 @@ noteTitle.addEventListener('input', (e) => {
 
 noteTitle.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-        console.log(noteTitle.value);
+        titleSubmit();
     }
 })
 
@@ -153,7 +154,9 @@ document.addEventListener('click', (e) => {
     if (!footer.contains(e.target)) {
         currentY = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
         footer.style.top = `${currentY}%`;
-        formVisibility();
+        if (!isSubmitted) {
+            formVisibility();
+        }
     }
 });
 
@@ -174,6 +177,14 @@ footer.addEventListener('mouseout', () => {
     }
 });
 
+noteEditor = document.getElementById('noteEditor');
+
+// Handle title form submission to proceed with note editor
+function titleSubmit() {
+    isSubmitted = true;
+    titleForm.classList.replace('unhide', 'hide');
+    noteEditor.classList.replace('hide', 'unhide');
+}
 
 
 function format(command, value = null) {
