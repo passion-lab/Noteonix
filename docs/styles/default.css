@@ -85,3 +85,46 @@
     opacity: 1;
     user-select: auto;
 }
+
+.delete {
+    animation: deleteit 1s ease-in 0s 1 normal forwards;
+}
+
+.insert {
+    animation: insertit 1s ease-in 1s 1 normal forwards;
+}
+
+@keyframes deleteit {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    99% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes insertit {
+    0% {
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        visibility: visible;
+    }
+    1% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        height: 100%;
+        width: 100%;
+        visibility: visible;
+    }
+}
