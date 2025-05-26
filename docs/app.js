@@ -182,8 +182,10 @@ noteEditor = document.getElementById('noteEditor');
 // Handle title form submission to proceed with note editor
 function titleSubmit() {
     isSubmitted = true;
-    titleForm.classList.replace('unhide', 'hide');
-    noteEditor.classList.replace('hide', 'unhide');
+
+    document.querySelector('body > div.background-container').classList.replace('title-mode', 'editor-mode');
+    titleForm.classList.add('delete');
+    noteEditor.classList.add('insert');
 }
 
 
