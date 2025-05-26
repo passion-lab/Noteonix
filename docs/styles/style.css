@@ -26,6 +26,7 @@ body > .background-container > * {
     display: flex;
     align-items: center;
     padding: 15px 25px;
+    z-index: 100;
 }
 
 header .header-container a {
@@ -99,11 +100,23 @@ main form #helpTitle {
 
 /* 2. Note editor */
 
+.background-container.editor-mode {
+    background-color: var(--clr-bg1-light);
+}
+
+.background-container.editor-mode header {
+    position: sticky;
+}
+
 main #noteEditor {
-    display: none;
-    height: 90%;
-    width: 90%;
-    background: lightcoral;
+    display: block;
+    opacity: 0;  /* initial values, later modified by class animation on submit (by JS) */
+    visibility: hidden;  /* initial values, later modified by class animation on submit (by JS) */
+    height: 0%;  /* initial values, later modified by class animation on submit (by JS)*/
+    width: 0%;  /* initial values, later modified by class animation on submit (by JS) */
+    background: white;
+    /* border: 1px solid var(--clr-line-light); */
+    border-radius: var(--base-border-radius);
 }
 
 /* Footer section */
