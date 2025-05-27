@@ -101,7 +101,8 @@ main form #helpTitle {
 /* 2. Note editor */
 
 .background-container.editor-mode {
-    background-color: var(--clr-bg1-light);
+    background-color: var(--clr-surface-light);
+    overflow-y: auto;
 }
 
 .background-container.editor-mode header {
@@ -114,9 +115,57 @@ main #noteEditor {
     visibility: hidden;  /* initial values, later modified by class animation on submit (by JS) */
     height: 0%;  /* initial values, later modified by class animation on submit (by JS)*/
     width: 0%;  /* initial values, later modified by class animation on submit (by JS) */
-    background: white;
-    /* border: 1px solid var(--clr-line-light); */
+}
+
+#noteEditor .header-area {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-area .metadata {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    color: var(--clr-text-sec-light);
+}
+
+#noteEditor .editor-area {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    background: var(--clr-neutral-a0);
     border-radius: var(--base-border-radius);
+    /* TODO: Gradient blob behind instead of box-shadow */
+}
+
+.editor-area .additional {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.additional .category {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
+.category .tag {
+    padding: 1px 5px;
+    color: var(--clr-text-sec-light);
+    border: 1px solid var(--clr-line-light);
+    border-radius: calc(var(--base-border-radius) / 2);
+    cursor: pointer;
+}
+
+.editor-area #editor {
+    padding: 3rem 4rem;
+    height: 100%;
+    width: 100%;
+    outline: none;
 }
 
 /* Footer section */
