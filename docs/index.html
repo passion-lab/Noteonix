@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noteonix</title>
+    <link rel="stylesheet" href="styles/remixicon.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -49,9 +50,35 @@
             
             <!-- Note editor section (initially hidden) -->
             <div id="noteEditor" class="unhide">
-                <!-- <h2 id="editorTitle" contenteditable="true"></h2>
-                <div id="editor" contenteditable="true"></div>
-                <div class="editor-toolbar">
+                <div class="header-area">
+                    <h1 id="editorTitle" contenteditable="true">Sample note title</h1>
+                    <div class="metadata">
+                        <!-- Timestamp -->
+                        <svg class="remix">
+                            <use xlink:href="resources/remixicon.symbol.svg#ri-time-line"></use>
+                        </svg>
+                        <span id="timestamp">22:20 May 27, 2025</span>
+                        <!-- States counts -->
+                        <svg class="remix">
+                            <use xlink:href="resources/remixicon.symbol.svg#ri-bar-chart-line"></use>
+                        </svg>
+                        <span id="states">00 Words</span>
+                        
+                    </div>
+                </div>
+                <div class="editor-area">
+                    <div class="additional">
+                        <!-- Categories -->
+                        <div class="category">
+                            <svg class="remix">
+                                <use xlink:href="resources/remixicon.symbol.svg#ri-price-tag-3-line"></use>
+                            </svg>
+                            <span class="tag">uncategorized</span>
+                        </div>
+                    </div>
+                    <div id="editor" contenteditable="true" aria-multiline="true"></div>
+                </div>
+                <!-- <div class="editor-toolbar">
                     <button onclick="UI.formatText('bold')"><b>B</b></button>
                     <button onclick="UI.formatText('italic')"><i>I</i></button>
                     <button onclick="UI.formatText('underline')"><u>U</u></button>
