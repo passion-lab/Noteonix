@@ -94,6 +94,12 @@
     animation: insertit 1s ease-in 1s 1 normal forwards;
 }
 
+.remix {
+    width: 16px;
+    height: 16px;
+    fill: grey;
+}
+
 @keyframes deleteit {
     0% {
         transform: translateY(0);
