@@ -6,6 +6,8 @@ body > .background-container {
     height: 100vh;
     width: 100%;
     background: var(--clr-bg2-light);
+    overflow: hidden;
+    transition: all 1s ease-out;
 }
 
 body > .background-container > * {
@@ -101,8 +103,8 @@ main form #helpTitle {
 /* 2. Note editor */
 
 .background-container.editor-mode {
-    background-color: var(--clr-surface-light);
-    overflow-y: auto;
+    background: var(--clr-surface-light);
+    /* overflow-y: auto; --> later injected by Js */
 }
 
 .background-container.editor-mode header {
