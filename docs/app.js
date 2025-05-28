@@ -2,12 +2,13 @@
 // ------------------------------------------------
 
 // HTML DOMs
+const titleForm = document.getElementById('titleForm');
 const noteTitle = document.getElementById('noteTitle');
 const helpTitle = document.getElementById('helpTitle');
+const editorTitle = document.getElementById('editorTitle');
+const footer = document.querySelector('footer');
 const footerHandle = document.getElementById('handle');
 const footerNotes = document.getElementById('notes-container');
-const titleForm = document.getElementById('titleForm');
-const footer = document.querySelector('footer');
 
 // Constant variables
 const minY = 10; // Minimum position percentage (how high it can go)
@@ -23,12 +24,16 @@ let startY = 80; // Starting position percentage
 let currentY = startY;
 let touchStartY = 0; // Handle touch events for mobile
 
+// Essential variables
+let finalTitle;
+let finalContent;
+
 
 // Note Title
 // ------------------------------------------------
 
 noteTitle.addEventListener('input', (e) => {
-    let inputTitle = e.target.value;
+    let inputTitle = e.target.value.trim();
     titleLength = inputTitle.length;
 
     // let titleWidth = noteTitle.clientWidth;
@@ -182,6 +187,7 @@ noteEditor = document.getElementById('noteEditor');
 // Handle title form submission to proceed with note editor
 function titleSubmit() {
     isSubmitted = true;
+    finalTitle = editorTitle.innerText = noteTitle.value.trim();
 
     document.querySelector('body > div.background-container').classList.replace('title-mode', 'editor-mode');
     titleForm.classList.add('delete');
