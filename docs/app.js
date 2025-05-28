@@ -186,6 +186,15 @@ function titleSubmit() {
     document.querySelector('body > div.background-container').classList.replace('title-mode', 'editor-mode');
     titleForm.classList.add('delete');
     noteEditor.classList.add('insert');
+
+    // Delete the title form after a minute of submission when animation ends
+    setTimeout(() => {
+        titleForm.style.display = "none";
+    }, 1000);
+    // Enable vertical expansion of the page after title submission and before editor appearance
+    setTimeout(() => {
+        document.querySelector('.background-container.editor-mode').style.overflowY = "auto";
+    }, 1500);
 }
 
 
