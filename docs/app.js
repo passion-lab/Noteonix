@@ -41,12 +41,10 @@ noteTitle.addEventListener('input', (e) => {
     
     if (titleLength >= 1) {
         helpTitle.classList.replace('hide', 'unhide');
-        // footerHandle.classList.replace('unhide', 'hide');
         footer.style.top = `${hiddenFooterPosition}%`;
         footerNotes.classList.replace('unhide', 'hide');
     } else {
         helpTitle.classList.replace('unhide', 'hide');
-        // footerHandle.classList.replace('hide', 'unhide');
         footer.style.top = `${defaultFooterPosition}%`;
         footerNotes.classList.replace('hide', 'unhide');
     }
