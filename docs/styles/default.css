@@ -74,6 +74,10 @@
     --base-font-size: calc(1rem + 1vw);
     --base-border-radius: 8px;
     --existing-note-position: 80%;
+    --dynamic-width: 80%;
+    /* Paper sizes (inch): Statement: 5.50", A5: 5.83", Executive: 7.25", A4: 8.27", Letter: 8.50", A3: 11.69"  */
+    --maximum-width: 8.50in;
+    --minimum-width: 200px;
 }
 
 .hide {
@@ -117,8 +121,8 @@
 
 @keyframes insertit {
     0% {
-        height: 100%;
-        width: 100%;
+        height: 80%;
+        width: 80%;
         opacity: 0;
         visibility: visible;
     }
@@ -129,8 +133,9 @@
     100% {
         transform: translateY(0);
         opacity: 1;
-        height: 100%;
-        width: 100%;
+        height: 80%;
+        width: 80%;
+        min-width: var(--minimum-width);
         visibility: visible;
     }
 }
