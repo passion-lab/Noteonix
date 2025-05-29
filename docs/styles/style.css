@@ -39,6 +39,7 @@ header .header-container a {
 
 .background-container main {
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,6 +47,9 @@ header .header-container a {
 }
 
 main form {
+    min-width: var(--minimum-width);
+    width: var(--dynamic-width);
+    max-width: var(--maximum-width);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,9 +67,7 @@ main form.unhide {
 /* 1. Title input */
 
 main form input {
-    max-width: 600px;
-    width: 80%;
-    min-width: 280px;
+    width: 100%;
     text-align: center;
 }
 
@@ -104,7 +106,14 @@ main form #helpTitle {
 
 .background-container.editor-mode {
     background: var(--clr-surface-light);
+    animation: vertical-expansion 0.1s linear 1s 1 normal forwards;
     /* overflow-y: auto; --> later injected by Js */
+}
+
+@keyframes vertical-expansion {
+    to {
+        overflow-y: auto;
+    }
 }
 
 .background-container.editor-mode header {
@@ -117,6 +126,8 @@ main #noteEditor {
     visibility: hidden;  /* initial values, later modified by class animation on submit (by JS) */
     height: 0%;  /* initial values, later modified by class animation on submit (by JS)*/
     width: 0%;  /* initial values, later modified by class animation on submit (by JS) */
+    /* min-width: var(--minimum-width); injected by class animation on submit (by JS) */
+    max-width: var(--maximum-width);
 }
 
 #noteEditor .header-area {
