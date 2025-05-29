@@ -126,11 +126,11 @@ main #noteEditor {
 #noteEditor .header-area {
     padding: 20px 0;
     text-align: center;
+    margin-bottom: calc(var(--base-font-size) * 1);
 }
 
 .header-area .metadata {
-    margin-top: 1rem;
-    margin-bottom: 5rem;
+    margin-top: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
