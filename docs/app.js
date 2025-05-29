@@ -201,6 +201,12 @@ function titleSubmit() {
     }, 1500);
 }
 
+editorTitle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        finalTitle = editorTitle.innerText.trim();
+    }
+})
+
 
 function format(command, value = null) {
     document.execCommand(command, true, value);
