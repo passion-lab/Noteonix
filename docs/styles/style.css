@@ -10,13 +10,6 @@ body > .background-container {
     transition: all 1s ease-out;
 }
 
-body > .background-container > * {
-    padding-top: 2vh;
-    padding-bottom: 10vh;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
 /* Header section */
 
 .background-container header {
