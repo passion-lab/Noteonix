@@ -1,0 +1,6 @@
+@media (max-width: 426px) {
+    /* Set padding inside the editor for portrait mobile mode */
+    .editor-area #editor {
+        padding: 0.2rem 0.5rem;
+    }
+}
