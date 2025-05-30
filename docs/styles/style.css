@@ -113,6 +113,24 @@ main form #helpTitle {
     position: sticky;
 }
 
+.background-container.editor-mode footer {
+    animation: slide-down 0.5s ease-in 0s 1 normal forwards;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+
 main #noteEditor {
     display: block;
     opacity: 0;  /* initial values, later modified by class animation on submit (by JS) */
@@ -142,10 +160,10 @@ main #noteEditor {
 }
 
 #noteEditor .editor-area {
-    height: 100%;
+    height: max-content;
     width: 100%;
     padding: 1rem;
-    background: var(--clr-neutral-a0);
+    background: linear-gradient(to bottom, var(--clr-neutral-a0) 50%, transparent);
     border-radius: var(--base-border-radius);
     /* TODO: Gradient blob behind instead of box-shadow */
 }
@@ -171,8 +189,9 @@ main #noteEditor {
 }
 
 .editor-area #editor {
-    padding: 3rem 4rem;
-    height: 100%;
+    padding: 3rem 4rem;  /* Modified in media query */
+    margin-bottom: 30vh; /* Buffer area for applying lower gradient of the 2nd ancestor element */
+    height: max-content;
     width: 100%;
     outline: none;
 }
