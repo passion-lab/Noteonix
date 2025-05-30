@@ -72,6 +72,7 @@
 
     /* Units */
     --base-font-size: calc(1rem + 1vw);
+    --base-font-size-vertical: calc(1rem + 1vh);
     --base-border-radius: 8px;
     --existing-note-position: 80%;
     --dynamic-width: 80%;
