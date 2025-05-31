@@ -212,16 +212,22 @@ main #noteEditor {
     z-index: 100;
 }
 
-footer:hover #handle.hide {
+footer .notes-section {
+    min-width: calc(var(--minimum-width) * 0.8);
+    width: calc(var(--dynamic-width) * 0.8);
+    max-width: calc(var(--maximum-width) * 0.8);
+}
+
+.notes-section:hover #handle.hide {
     opacity: 1;
 }
 
-footer:hover #notes-container.hide {
+.notes-section:hover #notes-container.hide {
     opacity: 1;
     user-select: auto;
 }
 
-footer #handle {
+.notes-section #handle {
     margin: 10px auto;
     height: 5px;
     width: calc(var(--base-font-size) * 1.5);
@@ -231,8 +237,8 @@ footer #handle {
     transition: opacity .5s ease .1s;
 }
 
-footer #notes-container {
-    width: 70vw;
+.notes-section #notes-container {
+    width: 100%;
     transition: opacity .5s ease .1s;
 }
 
@@ -280,7 +286,7 @@ footer #notes-container {
     color: var(--clr-text-sec-light); /* Use '...-pri-...' for dark theme */
 }
 
-footer .overlay {
+.notes-section .overlay {
     position: fixed;
     bottom: 0;
     left: 0;
