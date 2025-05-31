@@ -7,6 +7,7 @@ const noteTitle = document.getElementById('noteTitle');
 const helpTitle = document.getElementById('helpTitle');
 const editorTitle = document.getElementById('editorTitle');
 const footer = document.querySelector('footer');
+const footerNotesSection = document.querySelector('footer .notes-section');
 const footerHandle = document.getElementById('handle');
 const footerNotes = document.getElementById('notes-container');
 
@@ -95,7 +96,7 @@ function formVisibility() {
 }
 
 // Handle mouse wheel scrolling over the footer
-footer.addEventListener('wheel', (e) => {
+footerNotesSection.addEventListener('wheel', (e) => {
     e.preventDefault(); // Prevent default scroll behavior
     
     // Get dynamic minimum Y position
@@ -114,12 +115,12 @@ footer.addEventListener('wheel', (e) => {
     footer.style.top = `${currentY}%`;
 });
 
-footer.addEventListener('touchstart', (e) => {
+footerNotesSection.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
     e.preventDefault();
 });
 
-footer.addEventListener('touchmove', (e) => {
+footerNotesSection.addEventListener('touchmove', (e) => {
     e.preventDefault();
     const touchY = e.touches[0].clientY;
     const diff = touchStartY - touchY;
@@ -154,7 +155,7 @@ window.addEventListener('resize', () => {
 
 // Reset footer position when clicking outside
 document.addEventListener('click', (e) => {
-    if (!footer.contains(e.target)) {
+    if (!footerNotesSection.contains(e.target)) {
         currentY = titleLength >= 1 ? hiddenFooterPosition : defaultFooterPosition;
         footer.style.top = `${currentY}%`;
         if (!isSubmitted) {
@@ -164,7 +165,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Handle hover behavior for footer while input title field not empty
-footer.addEventListener('mouseover', () => {
+footerNotesSection.addEventListener('mouseover', () => {
     if (titleLength > 0 && currentY >= defaultFooterPosition) {
         currentY = defaultFooterPosition;
         footer.style.top = `${currentY}%`;
@@ -172,7 +173,7 @@ footer.addEventListener('mouseover', () => {
     }
 });
 
-footer.addEventListener('mouseout', () => {
+footerNotesSection.addEventListener('mouseout', () => {
     if (titleLength > 0 && currentY >= defaultFooterPosition) {
         currentY = hiddenFooterPosition;
         footer.style.top = `${currentY}%`;
@@ -180,7 +181,8 @@ footer.addEventListener('mouseout', () => {
     }
 });
 
-noteEditor = document.getElementById('noteEditor');
+noteEditorSection = document.getElementById('noteEditor');
+noteEditor = document.getElementById('editor');
 
 // Handle title form submission to proceed with note editor
 function titleSubmit() {
@@ -188,17 +190,10 @@ function titleSubmit() {
     finalTitle = editorTitle.innerText = noteTitle.value.trim();
 
     document.querySelector('body > div.background-container').classList.replace('title-mode', 'editor-mode');
-    titleForm.classList.add('delete');
-    noteEditor.classList.add('insert');
-
-    // Delete the title form after a minute of submission when animation ends
-    setTimeout(() => {
-        titleForm.style.display = "none";
-    }, 1000);
-    // Enable vertical expansion of the page after title submission and before editor appearance
-    setTimeout(() => {
-        document.querySelector('.background-container.editor-mode').style.overflowY = "auto";
-    }, 1500);
+    titleForm.classList.add('delete'); // 1. Delete the title form from 'deleteit' CSS animation
+    noteEditorSection.classList.add('insert'); // 2. Enable vertical expansion from 'insertit' CSS animation
+    noteTitle.removeAttribute('autofocus');
+    noteEditor.focus();
 }
 
 editorTitle.addEventListener('keydown', (e) => {

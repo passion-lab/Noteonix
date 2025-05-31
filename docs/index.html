@@ -45,7 +45,7 @@
         <main>
             <!-- Title form section -->
             <form action="javascript:void(0);" onsubmit="titleSubmit()" class="unhide" id="titleForm">
-                <input type="text" name="noteTitle" id="noteTitle" placeholder="Short title ">
+                <input type="text" name="noteTitle" id="noteTitle" placeholder="Short title " autofocus>
                 <input type="submit" value="press Enter [&#8629; ] once you're done" id="helpTitle" class="hide" disabled>
             </form>
             
@@ -91,53 +91,55 @@
 
         <!-- list of exiting notes -->
         <footer>
-            <div id="handle" class="unhide"></div>
-            <div id="notes-container" class="unhide">
+            <div class="notes-section">
+                <div id="handle" class="unhide"></div>
+                <div id="notes-container" class="unhide">
 
-                <!-- To be injected by JS -->
-                <div class="note">
-                    <div class="info">
-                        <div class="dd">23</div>
-                        <div class="mmm-yy">dec</div>
+                    <!-- To be injected by JS -->
+                    <div class="note">
+                        <div class="info">
+                            <div class="dd">23</div>
+                            <div class="mmm-yy">dec</div>
+                        </div>
+                        <div class="content">
+                            <h6>Note heading</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
+                        </div>
                     </div>
-                    <div class="content">
-                        <h6>Note heading</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
+                    <div class="note">
+                        <div class="info">
+                            <div class="dd">23</div>
+                            <div class="mmm-yy">dec</div>
+                        </div>
+                        <div class="content">
+                            <h6>Note heading</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="note">
-                    <div class="info">
-                        <div class="dd">23</div>
-                        <div class="mmm-yy">dec</div>
+                    <div class="note">
+                        <div class="info">
+                            <div class="dd">23</div>
+                            <div class="mmm-yy">dec</div>
+                        </div>
+                        <div class="content">
+                            <h6>Note heading</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
+                        </div>
                     </div>
-                    <div class="content">
-                        <h6>Note heading</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
+                    <div class="note">
+                        <div class="info">
+                            <div class="dd">23</div>
+                            <div class="mmm-yy">dec</div>
+                        </div>
+                        <div class="content">
+                            <h6>Note heading</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="note">
-                    <div class="info">
-                        <div class="dd">23</div>
-                        <div class="mmm-yy">dec</div>
-                    </div>
-                    <div class="content">
-                        <h6>Note heading</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
-                    </div>
-                </div>
-                <div class="note">
-                    <div class="info">
-                        <div class="dd">23</div>
-                        <div class="mmm-yy">dec</div>
-                    </div>
-                    <div class="content">
-                        <h6>Note heading</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nobis.</p>
-                    </div>
-                </div>
 
+                </div>
+                <div class="overlay"></div>
             </div>
-            <div class="overlay"></div>
         </footer>
     </div>
 
