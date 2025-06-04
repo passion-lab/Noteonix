@@ -116,6 +116,9 @@ main form #helpTitle {
 
 .background-container.editor-mode header {
     position: sticky;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .background-container.editor-mode header .header-container::before {
