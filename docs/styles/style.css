@@ -175,6 +175,18 @@ main #noteEditor {
 #noteEditor .header-area {
     text-align: center;
     margin-bottom: calc(var(--base-font-size) * 1.5);
+    animation: opacity-change both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+}
+
+@keyframes opacity-change {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 .header-area .metadata {
