@@ -1,6 +1,14 @@
 // Variables
 // ------------------------------------------------
 
+let userAgent = navigator.userAgent;
+
+let isChrome = userAgent.includes("Chrome") && !userAgent.includes("OPR");
+let isFirefox = userAgent.includes("Firefox");
+let isSafari = userAgent.includes("Safari") && !userAgent.includes("Chrome");
+let isEdge = userAgent.includes("Edg");
+let isOpera = userAgent.includes("OPR") || userAgent.includes("Opera");
+
 // HTML DOMs
 const titleForm = document.getElementById('titleForm');
 const noteTitle = document.getElementById('noteTitle');
@@ -202,10 +210,11 @@ function titleSubmit() {
 function fallbackNoteHeaderScrollAnimation() {
     // Check if browser supports scroll-driven animations
     const supportsScrollTimeline = 'animationTimeline' in document.documentElement.style;
+
+    const headerArea = document.querySelector('#noteEditor .header-area');
     
     if (!supportsScrollTimeline) {
         const backgroundOnEditorMode = document.querySelector('.background-container.editor-mode');
-        const headerArea = document.querySelector('#noteEditor .header-area');
         
         backgroundOnEditorMode.addEventListener('scroll', () => {
             // Get scroll position
@@ -218,6 +227,8 @@ function fallbackNoteHeaderScrollAnimation() {
                 headerArea.classList.remove('scrolled');
             }
         });
+    } else {
+        headerArea.style.animationName = 'opacity-change';
     }
 }
 

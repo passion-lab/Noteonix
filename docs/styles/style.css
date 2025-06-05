@@ -175,7 +175,9 @@ main #noteEditor {
 #noteEditor .header-area {
     text-align: center;
     margin-bottom: calc(var(--base-font-size) * 1.5);
-    animation: opacity-change both;
+    opacity: 1;
+    /* animation-name: opacity-change; Later added by JS during fallback */
+    animation-fill-mode: both;
     animation-timeline: scroll();
     animation-range: 0 100px;
     /* Fallback for browsers that don't support scroll-driven animations */
