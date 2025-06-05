@@ -96,7 +96,7 @@
 }
 
 .insert {
-    animation: insertit 1s ease-in 1s 1 normal forwards;
+    animation: insertit 1s ease-out 1s 1 normal forwards;
 }
 
 .remix {
