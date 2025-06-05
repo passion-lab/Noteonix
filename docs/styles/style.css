@@ -105,7 +105,7 @@ main form #helpTitle {
 .background-container.editor-mode {
     background: var(--clr-surface-light);
     animation: vertical-expansion 0.1s linear 1s 1 normal forwards;
-    /* overflow-y: auto; --> later injected by Js */
+    /* overflow-y: auto; --> later injected by CSS animation */
 }
 
 @keyframes vertical-expansion {
@@ -178,6 +178,8 @@ main #noteEditor {
     animation: opacity-change both;
     animation-timeline: scroll();
     animation-range: 0 100px;
+    /* Fallback for browsers that don't support scroll-driven animations */
+    transition: opacity 0.5s ease;
 }
 
 @keyframes opacity-change {
@@ -187,6 +189,11 @@ main #noteEditor {
     to {
         opacity: 0;
     }
+}
+
+/* Add JavaScript fallback hook class */
+#noteEditor .header-area.scrolled {
+    opacity: 0;
 }
 
 .header-area .metadata {

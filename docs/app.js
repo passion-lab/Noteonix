@@ -194,7 +194,34 @@ function titleSubmit() {
     noteEditorSection.classList.add('insert'); // 2. Enable vertical expansion from 'insertit' CSS animation
     noteTitle.removeAttribute('autofocus');
     noteEditor.focus();
+
+    fallbackNoteHeaderScrollAnimation();
 }
+
+// Fallback for browsers that don't support scroll-driven animations
+function fallbackNoteHeaderScrollAnimation() {
+    // Check if browser supports scroll-driven animations
+    const supportsScrollTimeline = 'animationTimeline' in document.documentElement.style;
+    
+    if (!supportsScrollTimeline) {
+        const backgroundOnEditorMode = document.querySelector('.background-container.editor-mode');
+        const headerArea = document.querySelector('#noteEditor .header-area');
+        
+        backgroundOnEditorMode.addEventListener('scroll', () => {
+            // Get scroll position
+            const scrollTop = backgroundOnEditorMode.scrollY || backgroundOnEditorMode.scrollTop;
+            
+            // Apply class based on scroll position
+            if (scrollTop > 50) {
+                headerArea.classList.add('scrolled');
+            } else {
+                headerArea.classList.remove('scrolled');
+            }
+        });
+    }
+}
+
+
 
 editorTitle.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
