@@ -37,6 +37,7 @@
         <!-- Header section -->
         <header>
             <div class="header-container">
+                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62.75 63.58"><title>Logo</title><g id="Layer_2" data-name="Layer 2"><g id="Logo"><path id="N" d="M29.18,63.58C29.06,63.11,26.61,52.41,24,41l-.81-3.58-.36-1.57c-.27-1.21-.55-2.4-.81-3.58-.43-1.9-.86-3.76-1.25-5.51s-.82-3.58-1.17-5.15c-.15-.68-.3-1.33-.44-1.94-.31-1.39-.59-2.6-.81-3.58-.13-.62-.25-1.15-.34-1.57-.17-.75-.26-1.19-.27-1.24h-.1c-.06.41-.12.82-.19,1.24s-.16,1-.26,1.57c-.18,1.15-.39,2.34-.62,3.58-.12.64-.24,1.28-.37,1.94-.22,1.16-.46,2.35-.71,3.58-.1.52-.21,1-.31,1.57l-.74,3.57c-.13.64-.27,1.29-.4,1.94-.25,1.17-.5,2.37-.76,3.58,0,.06,0,.12,0,.18L13,37.42,12.21,41l-1.76,8.28H0L1.76,41l.76-3.58.33-1.57.76-3.58L4,30.33l.76-3.57.33-1.57.76-3.58.41-1.94,1.1-5.15L8.55,9l.76-3.58.33-1.57L10.4.28H24.57l.26,3.58L25,5.43,25.21,9,25.35,11l.1,1.44.16,2.13.11,1.57L26,19.67l.14,1.94.38,5.15Z"/><g id="Lines"><polygon id="L1" points="38.45 5.15 39.54 0 57.16 0 56.83 1.57 56.07 5.15 38.45 5.15" style="fill:#4d4d4d"/><polygon id="L2" points="36.15 15.81 37.25 10.66 62.75 10.66 62.42 12.23 61.66 15.81 36.15 15.81" style="fill:#4d4d4d"/><polygon id="L3" points="48.99 21.33 47.83 26.47 34.01 26.47 35.09 21.33 48.99 21.33" style="fill:#4d4d4d"/><polygon id="L4" points="32.17 37.14 33.26 31.99 56.3 31.99 55.97 33.56 55.21 37.14 32.17 37.14" style="fill:#4d4d4d"/></g><circle id="ON" cx="34.01" cy="45.78" r="3.5" style="fill:lime"/></g></g></svg></span>
                 <a href="http://passion-lab.github.io/Noteonix"><strong>NoteONix</strong></a>
             </div>
         </header>
@@ -51,6 +52,7 @@
             
             <!-- Note editor section (initially hidden) -->
             <div id="noteEditor" class="unhide">
+                <!-- Header areas of the note -->
                 <div class="header-area">
                     <h1 id="editorTitle" contenteditable="true">Sample note title</h1>
                     <div class="metadata">
@@ -67,6 +69,8 @@
                         
                     </div>
                 </div>
+
+                <!-- Main editor area -->
                 <div class="editor-area">
                     <div class="additional">
                         <!-- Categories -->
@@ -79,6 +83,7 @@
                     </div>
                     <div id="editor" contenteditable="true" aria-multiline="true"></div>
                 </div>
+
                 <!-- <div class="editor-toolbar">
                     <button onclick="UI.formatText('bold')"><b>B</b></button>
                     <button onclick="UI.formatText('italic')"><i>I</i></button>
