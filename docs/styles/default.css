@@ -140,3 +140,8 @@
         visibility: visible;
     }
 }
+
+svg {
+    height: 2rem;
+    width: 2rem;
+}

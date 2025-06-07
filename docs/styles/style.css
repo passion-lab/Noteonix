@@ -30,6 +30,7 @@ header .header-container {
 }
 
 header .header-container a {
+    margin-left: 1rem;
     color: var(--clr-primary-a40);
 }
 
