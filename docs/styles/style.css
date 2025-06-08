@@ -46,7 +46,7 @@ header .header-container {
     fill: var(--clr-neutral-a100);
 }
 .header-container .logo svg #N_ {
-    fill: initial;
+    fill: none;
     animation: logo-n 3s linear 0s infinite forwards normal;
 }
 .header-container .logo svg #Lines {
@@ -71,7 +71,7 @@ header .header-container {
         fill: none;
     }
     90%, 100% {
-        fill: var(--clr-success-a0);
+        fill: #00e913;
     }
 }
 
