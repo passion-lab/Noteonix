@@ -24,7 +24,8 @@ body > .background-container {
 header .header-container {
     width: 100%;
     height: 100%;
-    padding: 15px 25px;
+    /* padding: 50px 25px; */
+    padding: calc(var(--base-font-size-vertical) * 2.5) calc(var(--base-font-size) * 1);
     display: flex;
     align-items: center;
 }
@@ -72,7 +73,6 @@ header .header-container {
 }
 
 .header-container .logo a {
-    /* margin-left: 1rem; */
     color: var(--clr-primary-a40);
 }
 
