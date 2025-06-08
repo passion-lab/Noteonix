@@ -33,6 +33,9 @@ header .header-container {
 .header-container .logo {
     display: flex;
     align-items: center;
+    gap: 5px;
+    font-size: calc(var(--base-font-size) * 0.9);
+    color: var(--clr-primary-a40);
 }
 
 .header-container .logo svg {
@@ -70,10 +73,6 @@ header .header-container {
     90%, 100% {
         fill: var(--clr-success-a0);
     }
-}
-
-.header-container .logo a {
-    color: var(--clr-primary-a40);
 }
 
 /* Editing area */
