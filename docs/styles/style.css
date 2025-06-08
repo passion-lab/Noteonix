@@ -29,8 +29,50 @@ header .header-container {
     align-items: center;
 }
 
-header .header-container a {
-    margin-left: 1rem;
+.header-container .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-container .logo svg {
+    height: calc(var(--base-font-size) * 1.5);
+    width: calc(var(--base-font-size) * 1.5);
+}
+.header-container .logo svg #N {
+    fill: var(--clr-neutral-a100);
+}
+.header-container .logo svg #N_ {
+    fill: initial;
+    animation: logo-n 3s linear 0s infinite forwards normal;
+}
+.header-container .logo svg #Lines {
+    fill: var(--clr-neutral-a20);
+}
+.header-container .logo svg #ON {
+    fill: none;
+    animation: logo-on 3s linear 0s infinite forwards normal;
+}
+
+@keyframes logo-n {
+    0%, 89% {
+        fill: initial;
+    }
+    90%, 100% {
+        fill: none;
+    }
+}
+
+@keyframes logo-on {
+    0%, 89% {
+        fill: none;
+    }
+    90%, 100% {
+        fill: var(--clr-success-a0);
+    }
+}
+
+.header-container .logo a {
+    /* margin-left: 1rem; */
     color: var(--clr-primary-a40);
 }
 
