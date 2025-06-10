@@ -121,6 +121,12 @@ main form #noteTitle {
     font-weight: 200;
     border-bottom: 1px solid transparent;
     color: var(--clr-text-pri-dark);
+    /* background: linear-gradient(90deg, var(--clr-primary-a0), var(--clr-accent-a0));
+    background: -webkit-linear-gradient(0deg, var(--clr-primary-a0), var(--clr-accent-a0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; */
 }
 
 main form #noteTitle::placeholder {
@@ -231,6 +237,15 @@ main #noteEditor {
 /* Add JavaScript fallback hook class */
 #noteEditor .header-area.scrolled {
     opacity: 0;
+}
+
+.header-area #editorTitle {
+    background: linear-gradient(90deg, var(--clr-primary-a0), var(--clr-accent-a0));
+    background: -webkit-linear-gradient(0deg, var(--clr-primary-a0), var(--clr-accent-a0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .header-area .metadata {
