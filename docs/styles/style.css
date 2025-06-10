@@ -38,9 +38,13 @@ header .header-container {
     color: var(--clr-primary-a40);
 }
 
+/* TODO: Hover animation to be added */
 .header-container .logo svg {
     height: calc(var(--base-font-size) * 1.5);
     width: calc(var(--base-font-size) * 1.5);
+}
+.header-container .logo svg * {
+    transition: all 0.5s ease;
 }
 .header-container .logo svg #N {
     fill: var(--clr-neutral-a100);
@@ -158,32 +162,21 @@ main form #helpTitle {
 
 .background-container.editor-mode header {
     position: sticky;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
-.background-container.editor-mode header .header-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 5rem;  /* TODO: Dynamically set it based on the width of the logo on page load */
-    background-color: var(--clr-accent-a0);
-    clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
-    animation: from-left 1.5s ease-out 0s 1 normal forwards;
-    z-index: -1;
+.background-container.editor-mode header .header-container .logo svg * {
+    fill: var(--clr-primary-a0);
 }
-
-@keyframes from-left {
-    from {
-        transform: translateX(-100%);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+.background-container.editor-mode header .header-container .logo svg #ON {
+    animation: none;
+    fill: none;
+}
+.background-container.editor-mode header .header-container .logo svg #N_ {
+    animation: none;
+    fill: var(--clr-primary-a0);
+}
+.background-container.editor-mode header .header-container .logo .text {
+    display: none;
 }
 
 .background-container.editor-mode footer {
