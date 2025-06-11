@@ -201,7 +201,7 @@ function titleSubmit() {
     titleForm.classList.add('delete'); // 1. Delete the title form from 'deleteit' CSS animation
     noteEditorSection.classList.add('insert'); // 2. Enable vertical expansion from 'insertit' CSS animation
     noteTitle.removeAttribute('autofocus');
-    noteEditor.focus();
+    noteEditor.focus();  // TODO: need to be fixed to autofocus in the note editor automatically after title submission
 
     fallbackNoteHeaderScrollAnimation();
 }
@@ -237,6 +237,7 @@ function fallbackNoteHeaderScrollAnimation() {
 editorTitle.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         finalTitle = editorTitle.innerText.trim();
+        noteEditor.focus();
     }
 })
 
