@@ -1,14 +1,6 @@
 // Variables
 // ------------------------------------------------
 
-let userAgent = navigator.userAgent;
-
-let isChrome = userAgent.includes("Chrome") && !userAgent.includes("OPR");
-let isFirefox = userAgent.includes("Firefox");
-let isSafari = userAgent.includes("Safari") && !userAgent.includes("Chrome");
-let isEdge = userAgent.includes("Edg");
-let isOpera = userAgent.includes("OPR") || userAgent.includes("Opera");
-
 // HTML DOMs
 const titleForm = document.getElementById('titleForm');
 const noteTitle = document.getElementById('noteTitle');
