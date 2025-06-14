@@ -79,6 +79,32 @@
     /* Paper sizes (inch): Statement: 5.50", A5: 5.83", Executive: 7.25", A4: 8.27", Letter: 8.50", A3: 11.69"  */
     --maximum-width: 8.50in;
     --minimum-width: 200px;
+    
+    /* Color Palette - Light Theme */
+
+    --primary-100:#0D6E6E;
+    --primary-200:#4a9d9c;
+    --primary-300:#afffff;
+    --accent-100:#FF3D3D;
+    --accent-200:#ffe0c8;
+    --text-100:#0d1f2d;
+    --text-200:#354656;
+    --bg-100:#fafafa;
+    --bg-200:#f0f0f0;
+    --bg-300:#c7c7c7;
+
+    /* Color Palette - Dark Theme */
+
+    --primary-100:#0D6E6E;
+    --primary-200:#4a9d9c;
+    --primary-300:#afffff;
+    --accent-100:#FF3D3D;
+    --accent-200:#ffe0c8;
+    --text-100:#fafafa;
+    --text-200:#dbdbdb;
+    --bg-100:#0d1f2d;
+    --bg-200:#1d2e3d;
+    --bg-300:#354656;
 }
 
 .hide {
