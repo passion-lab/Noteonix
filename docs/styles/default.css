@@ -98,9 +98,9 @@
     --color-text-light: #1d2e3d;
     --color-text-lighter: #354656;
     
-    --color-background: #c7c7c7;
+    --color-background: #fafafa;
     --color-background-light: #f0f0f0;
-    --color-background-lighter: #fafafa;
+    --color-background-lighter: #c7c7c7;
 
     --color-success: #138a74;
     --color-warning: #ffc107;
@@ -115,9 +115,9 @@
         --color-text-light: #f0f0f0;
         --color-text-lighter: #c7c7c7;
         
-        --color-background: #354656;
+        --color-background-lighter: #354656;
         --color-background-light: #1d2e3d;
-        --color-background-lighter: #121d26;
+        --color-background: #121d26;
     }
 }
 
