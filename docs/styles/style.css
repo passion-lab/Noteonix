@@ -5,7 +5,7 @@
 body > .background-container {
     height: 100vh;
     width: 100%;
-    background: var(--color-background-lighter);
+    background: var(--color-background);
     overflow: hidden;
     transition: all 1s ease-out;
 }
@@ -54,7 +54,7 @@ header .header-container {
     animation: logo-n 3s linear 0s infinite forwards normal;
 }
 .header-container .logo svg #Lines {
-    fill: var(--color-background);
+    fill: var(--color-background-lighter);
 }
 .header-container .logo svg #ON {
     fill: none;
@@ -131,16 +131,16 @@ main form #noteTitle {
 
 main form #noteTitle::placeholder {
     font-weight: 100;
-    color: var(--color-background);
+    color: var(--color-background-lighter);
 }
 
 main form #noteTitle:hover {
-    border-bottom: 1px solid var(--color-background);
+    border-bottom: 1px solid var(--color-background-lighter);
 }
 
 main form #noteTitle:focus,
 main form #noteTitle:active {
-    border-bottom: 1px dotted var(--color-background);
+    border-bottom: 1px dotted var(--color-background-lighter);
 }
 
 main form #helpTitle {
@@ -155,7 +155,7 @@ main form #helpTitle {
 /* 2. Note editor */
 
 .background-container.editor-mode {
-    background: var(--clr-surface-light);
+    background: var(--color-background-light);
     animation: vertical-expansion 0.1s linear 1s 1 normal forwards;
     /* overflow-y: auto; --> later injected by CSS animation */
 }
@@ -171,15 +171,18 @@ main form #helpTitle {
 }
 
 .background-container.editor-mode header .header-container .logo svg * {
-    fill: var(--clr-primary-a0);
+    fill: var(--color-text);
 }
 .background-container.editor-mode header .header-container .logo svg #ON {
     animation: none;
     fill: none;
 }
+.background-container.editor-mode header .header-container .logo svg #N {
+    fill: var(--color-text);
+}
 .background-container.editor-mode header .header-container .logo svg #N_ {
     animation: none;
-    fill: var(--clr-primary-a0);
+    fill: var(--color-text);
 }
 .background-container.editor-mode header .header-container .logo .text {
     display: none;
@@ -271,7 +274,7 @@ main #noteEditor {
     height: max-content;
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(to bottom, var(--clr-neutral-a0) 50%, transparent);
+    background: linear-gradient(to bottom, var(--color-background) 50%, transparent);
     border-radius: var(--base-border-radius);
     /* TODO: Gradient blob behind instead of box-shadow */
 }
@@ -302,6 +305,7 @@ main #noteEditor {
     height: max-content;
     width: 100%;
     outline: none;
+    color: var(--color-text);
 }
 
 /* Footer section */
@@ -354,7 +358,7 @@ footer .notes-section {
     width: 100%;
     padding: 5px 15px;
     margin-bottom: 10px;
-    border: 1px solid var(--color-background);
+    border: 1px solid var(--color-background-lighter);
     border-radius: var(--base-border-radius);
     display: flex;
     align-items: center;
@@ -400,6 +404,6 @@ footer .notes-section {
     left: 0;
     right: 0;
     height: calc(100vh - var(--existing-note-position));
-    background: linear-gradient(to top, var(--color-background-lighter) 0%, transparent 40%);
+    background: linear-gradient(to top, var(--color-background) 0%, transparent 40%);
     pointer-events: none; /* Allow clicks to pass through */
 }
