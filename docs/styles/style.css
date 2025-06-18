@@ -35,7 +35,7 @@ header .header-container {
     align-items: center;
     gap: 5px;
     font-size: calc(var(--base-font-size) * 0.9);
-    color: var(--color-primary);
+    color: var(--color-text-lighter);
 }
 
 /* TODO: Hover animation to be added */
@@ -400,6 +400,6 @@ footer .notes-section {
     left: 0;
     right: 0;
     height: calc(100vh - var(--existing-note-position));
-    background: linear-gradient(to top, var(--color-background-lighter) 0%, transparent 30%);
+    background: linear-gradient(to top, var(--color-background-lighter) 0%, transparent 40%);
     pointer-events: none; /* Allow clicks to pass through */
 }
