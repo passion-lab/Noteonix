@@ -5,7 +5,7 @@
 body > .background-container {
     height: 100vh;
     width: 100%;
-    background: var(--clr-bg2-light);
+    background: var(--color-background-lighter);
     overflow: hidden;
     transition: all 1s ease-out;
 }
@@ -35,7 +35,7 @@ header .header-container {
     align-items: center;
     gap: 5px;
     font-size: calc(var(--base-font-size) * 0.9);
-    color: var(--clr-primary-a40);
+    color: var(--color-primary);
 }
 
 /* TODO: Hover animation to be added */
@@ -47,14 +47,14 @@ header .header-container {
     transition: all 0.5s ease;
 }
 .header-container .logo svg #N {
-    fill: var(--clr-neutral-a100);
+    fill: var(--color-primary);
 }
 .header-container .logo svg #N_ {
     fill: none;
     animation: logo-n 3s linear 0s infinite forwards normal;
 }
 .header-container .logo svg #Lines {
-    fill: var(--clr-neutral-a20);
+    fill: var(--color-background);
 }
 .header-container .logo svg #ON {
     fill: none;
@@ -63,7 +63,7 @@ header .header-container {
 
 @keyframes logo-n {
     0%, 89% {
-        fill: initial;
+        fill: var(--color-primary);
     }
     90%, 100% {
         fill: none;
@@ -120,7 +120,7 @@ main form #noteTitle {
     font-size: calc(var(--base-font-size) * 2);
     font-weight: 200;
     border-bottom: 1px solid transparent;
-    color: var(--clr-text-pri-dark);
+    color: var(--color-text);
     /* background: linear-gradient(90deg, var(--clr-primary-a0), var(--clr-accent-a0));
     background: -webkit-linear-gradient(0deg, var(--clr-primary-a0), var(--clr-accent-a0));
     background-clip: text;
@@ -131,16 +131,16 @@ main form #noteTitle {
 
 main form #noteTitle::placeholder {
     font-weight: 100;
-    color: var(--clr-neutral-a10);
+    color: var(--color-background);
 }
 
 main form #noteTitle:hover {
-    border-bottom: 1px solid var(--clr-line-light);
+    border-bottom: 1px solid var(--color-background);
 }
 
 main form #noteTitle:focus,
 main form #noteTitle:active {
-    border-bottom: 1px dotted var(--clr-line-dark);
+    border-bottom: 1px dotted var(--color-background);
 }
 
 main form #helpTitle {
@@ -148,7 +148,7 @@ main form #helpTitle {
     font-size: calc(var(--base-font-size) * .5);
     font-style: italic;
     cursor: auto;
-    color: grey;
+    color: var(--color-nutral);
     transition: opacity .5s ease .1s;
 }
 
@@ -340,7 +340,7 @@ footer .notes-section {
     height: 5px;
     width: calc(var(--base-font-size) * 1.5);
     border-radius: var(--base-border-radius);
-    background: var(--clr-line-light);
+    background: var(--color-background-light);
     cursor: pointer;
     transition: opacity .5s ease .1s;
 }
@@ -354,7 +354,7 @@ footer .notes-section {
     width: 100%;
     padding: 5px 15px;
     margin-bottom: 10px;
-    border: 1px solid var(--clr-neutral-a10);
+    border: 1px solid var(--color-background);
     border-radius: var(--base-border-radius);
     display: flex;
     align-items: center;
@@ -365,14 +365,14 @@ footer .notes-section {
 
 #notes-container .note:hover {
     /* TODO: Glass effect to be added here */
-    background: linear-gradient(90deg, transparent, var(--clr-surface-light));
+    background: linear-gradient(90deg, transparent, var(--color-background-light));
     cursor: pointer;
     opacity: 1;
 }
 
 #notes-container .note .info {
     text-align: center;
-    color: var(--clr-neutral-a20);
+    color: var(--color-nutral);
 }
 
 #notes-container .note .info .dd {
@@ -386,12 +386,12 @@ footer .notes-section {
 
 #notes-container .note .content h6 {
     font-size: 1rem;
-    color: var(--clr-text-sec-dark); /* Use '...-pri-...' for dark theme */
+    color: var(--color-primary-light);
 }
 
 #notes-container .note .content p {
     font-size: .9rem;
-    color: var(--clr-text-sec-light); /* Use '...-pri-...' for dark theme */
+    color: var(--color-text-lighter);
 }
 
 .notes-section .overlay {
@@ -400,6 +400,6 @@ footer .notes-section {
     left: 0;
     right: 0;
     height: calc(100vh - var(--existing-note-position));
-    background: linear-gradient(to top, var(--clr-bg2-light) 0%, transparent 30%);
+    background: linear-gradient(to top, var(--color-background-lighter) 0%, transparent 30%);
     pointer-events: none; /* Allow clicks to pass through */
 }
