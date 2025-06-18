@@ -365,7 +365,7 @@ footer .notes-section {
 
 #notes-container .note:hover {
     /* TODO: Glass effect to be added here */
-    background: linear-gradient(90deg, transparent, var(--color-background-light));
+    background: linear-gradient(55deg, transparent 30%, var(--color-background-light));
     cursor: pointer;
     opacity: 1;
 }
