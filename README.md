@@ -1,4 +1,4 @@
 # Noteonix
-> *"Power Up Your Thoughts"* —Always On. Always Yours.
+> *"Power Up Your Thoughts"* — Always On. Always Yours.
 
-Noteonix, A minimal yet powerful note taking app.
+Noteonix, a minimal, modern yet powerful and sleek designed note-taking app.
