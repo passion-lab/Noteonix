@@ -27,6 +27,12 @@
     --color-error: var(--color-accent);
     --color-nutral: #808080;
 
+    /* Fonts */
+    --font-logo: "Oxanium", sans-serif;
+    --font-ui: "Source Sans 3", sans-serif;
+    --font-title: "Inter", sans-serif;
+    --font-content: "Source Sans 3", sans-serif;
+
     /* Units */
     --base-font-size: calc(1rem + 1vw);
     --base-font-size-vertical: calc(1rem + 1vh);
