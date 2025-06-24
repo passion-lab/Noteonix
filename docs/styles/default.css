@@ -1,16 +1,5 @@
-:root {
-    /* Units */
-    --base-font-size: calc(1rem + 1vw);
-    --base-font-size-vertical: calc(1rem + 1vh);
-    --base-border-radius: 8px;
-    --existing-note-position: 80%;
-    --dynamic-width: 80%;
-    /* Paper sizes (inch): Statement: 5.50", A5: 5.83", Executive: 7.25", A4: 8.27", Letter: 8.50", A3: 11.69"  */
-    --maximum-width: 8.50in;
-    --minimum-width: 200px;
-    
+:root {    
     /* Color Palette - Light Theme (Default) */
-
     --color-primary-hue: 180;  /* for HSL contrl */
     --color-primary: #0D6E6E;
     --color-primary-light: #4a9d9c;
@@ -37,6 +26,16 @@
     --color-warning: #ffc107;
     --color-error: var(--color-accent);
     --color-nutral: #808080;
+
+    /* Units */
+    --base-font-size: calc(1rem + 1vw);
+    --base-font-size-vertical: calc(1rem + 1vh);
+    --base-border-radius: 8px;
+    --existing-note-position: 80%;
+    --dynamic-width: 80%;
+    /* Paper sizes (inch): Statement: 5.50", A5: 5.83", Executive: 7.25", A4: 8.27", Letter: 8.50", A3: 11.69"  */
+    --maximum-width: 8.50in;
+    --minimum-width: 200px;
 }
 
 /* Color Palette - Dark Theme */
