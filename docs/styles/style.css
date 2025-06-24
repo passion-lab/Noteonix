@@ -79,6 +79,10 @@ header .header-container {
     }
 }
 
+.header-container .logo .text {
+    font-family: var(--font-logo);
+}
+
 /* Editing area */
 
 .background-container main {
