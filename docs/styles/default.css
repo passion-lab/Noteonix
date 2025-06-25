@@ -29,7 +29,7 @@
 
     /* Fonts */
     --font-logo: "Oxanium", sans-serif;
-    --font-ui: "Source Sans 3", sans-serif;
+    --font-ui: "Source Sans 3", 'Segoe UI', sans-serif;
     --font-title: "Inter", sans-serif;
     --font-content: "Source Sans 3", sans-serif;
 

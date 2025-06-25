@@ -4,7 +4,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "Source Sans 3", 'Segoe UI', sans-serif;
     font-optical-sizing: auto;
     font-display: swap;
 }
