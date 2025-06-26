@@ -254,8 +254,8 @@ main #noteEditor {
     text-align: center;
     width: fit-content;
     max-width: 100%;
-    background: linear-gradient(90deg, var(--color-primary-light), var(--color-secondary));
-    /* background: -webkit-linear-gradient(0deg, var(--clr-primary-a0), var(--clr-accent-a0)); */
+    background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+    background: -webkit-linear-gradient(0deg, var(--color-accent), var(--color-secondary));
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
