@@ -192,6 +192,15 @@ main form #helpTitle {
     display: none;
 }
 
+.background-container.editor-mode header .header-container .logo:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+.background-container.editor-mode header .header-container .logo:hover svg {
+    transform-origin: center;
+    transform: scale(0.7);
+}
+
 .background-container.editor-mode footer {
     animation: slide-down 0.5s ease-in 0s 1 normal forwards;
 }
