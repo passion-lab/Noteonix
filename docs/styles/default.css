@@ -98,7 +98,7 @@
 
 @keyframes insertit {
     0% {
-        height: 80%;
+        height: 0%;
         width: 80%;
         opacity: 0;
         visibility: visible;
