@@ -26,6 +26,7 @@
     --color-warning: #ffc107;
     --color-error: var(--color-accent);
     --color-nutral: #808080;
+    --color-nutral-rgb: 0, 0, 0;
 
     /* Fonts */
     --font-logo: "Oxanium", sans-serif;
@@ -54,6 +55,8 @@
         --color-background-lighter: #354656;
         --color-background-light: #1d2e3d;
         --color-background: #121d26;
+
+        --color-nutral-rgb: 255, 255, 255;
     }
 }
 

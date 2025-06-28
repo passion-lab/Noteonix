@@ -215,24 +215,26 @@ main form #helpTitle {
     margin-bottom: 8px;
     display: block;
     border-radius: calc(var(--base-border-radius) / 2);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--color-nutral-rgb), 0.1);
+    border: 1px solid rgba(var(--color-nutral-rgb), 0.115);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
 .background-container.editor-mode .toolbar section:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(var(--color-nutral-rgb), 0.15);
 }
 
 .background-container.editor-mode .toolbar section:first-child {
     margin-bottom: 2px;
+    border: none;
     background: none;
     display: flex;
     justify-content: center;
 }
 
 .background-container.editor-mode .toolbar section .pin {
-    fill: rgba(255, 255, 255, 0.2);
+    fill: rgba(var(--color-nutral-rgb), 0.2);
 }
 
 .background-container.editor-mode .toolbar section .tool {
@@ -245,7 +247,7 @@ main form #helpTitle {
 }
 
 .background-container.editor-mode .toolbar section .tool:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(var(--color-nutral-rgb), 0.15);
 }
 
 
