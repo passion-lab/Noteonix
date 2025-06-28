@@ -83,6 +83,10 @@ header .header-container {
     font-family: var(--font-logo);
 }
 
+header .toolbar {
+    display: none;
+}
+
 /* Editing area */
 
 .background-container main {
@@ -195,6 +199,55 @@ main form #helpTitle {
 .background-container.editor-mode header .header-container .logo:hover svg * {
     fill: var(--color-accent);
 }
+
+/* Text formatting toolbar */
+
+.background-container.editor-mode header .toolbar {
+    display: initial;
+    position: absolute;
+    left: calc(var(--base-font-size) * 1.2);
+    top: 100%;
+    height: 100px;
+}
+
+.background-container.editor-mode .toolbar section {
+    position: relative;
+    margin-bottom: 8px;
+    display: block;
+    border-radius: calc(var(--base-border-radius) / 2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.background-container.editor-mode .toolbar section:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.background-container.editor-mode .toolbar section:first-child {
+    margin-bottom: 2px;
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
+.background-container.editor-mode .toolbar section .pin {
+    fill: rgba(255, 255, 255, 0.2);
+}
+
+.background-container.editor-mode .toolbar section .tool {
+    display: block;
+    padding: 2px 5px;
+    height: 24px;
+    width: 28px;
+    border-radius: calc(var(--base-border-radius) / 2);
+    fill: var(--color-text);
+}
+
+.background-container.editor-mode .toolbar section .tool:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
 
 .background-container.editor-mode footer {
     animation: slide-down 0.5s ease-in 0s 1 normal forwards;
