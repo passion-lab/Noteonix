@@ -207,13 +207,26 @@ main form #helpTitle {
     position: absolute;
     left: calc(var(--base-font-size) * 1.2);
     top: 100%;
-    height: 100px;
 }
 
 .background-container.editor-mode .toolbar section {
     position: relative;
     margin-bottom: 8px;
     display: block;
+}
+
+.background-container.editor-mode .toolbar section .group {
+    position: relative;
+}
+
+.background-container.editor-mode .toolbar section .sub-group {
+    position: absolute;
+    top: 0;
+    right: calc(-100% - 10px);
+}
+
+.background-container.editor-mode .toolbar section,
+.background-container.editor-mode .toolbar section .sub-group {
     border-radius: calc(var(--base-border-radius) / 2);
     background: rgba(var(--color-nutral-rgb), 0.1);
     border: 1px solid rgba(var(--color-nutral-rgb), 0.115);
