@@ -224,8 +224,7 @@ function fallbackNoteHeaderScrollAnimation() {
     }
 }
 
-
-
+// Handle title change and editor focus on 'enter' key press
 editorTitle.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         finalTitle = editorTitle.innerText.trim();
@@ -236,6 +235,7 @@ editorTitle.addEventListener('keydown', (e) => {
 // All toggling elements in the text formatting toolbar with the "group" classname
 const groups = document.querySelectorAll('header .toolbar section .group');
 
+// Handle toolbar group toggling feature
 for (const group in groups) {
     if (Object.prototype.hasOwnProperty.call(groups, group)) {
         const element = groups[group];
