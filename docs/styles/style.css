@@ -17,14 +17,12 @@ body > .background-container {
     top: 0;
     left: 0;
     width: 100%;
-    /* height: 5rem; */
     z-index: 100;
 }
 
 header .header-container {
     width: 100%;
     height: 100%;
-    /* padding: 50px 25px; */
     padding: calc(var(--base-font-size-vertical) * 1.2) calc(var(--base-font-size) * 1);
     display: flex;
     align-items: center;
@@ -38,24 +36,6 @@ header .header-container {
     font-size: calc(var(--base-font-size) * 0.9);
     color: var(--color-text-lighter);
 }
-
-/* .header-container .logo::after {
-    content: 'F';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    height: 30px;
-    width: 100%;
-    border: 1px solid red;
-    font-family: var(--font-ui);
-    font-size: calc(var(--base-font-size) * 0.5);
-    cursor: default;
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    display: none;
-} */
 
 /* TODO: Hover animation to be added */
 .header-container .logo svg {
@@ -195,6 +175,30 @@ main form #helpTitle {
 
 .background-container.editor-mode header {
     position: sticky;
+}
+
+.background-container.editor-mode header .header-container .logo::after {
+    content: '▼';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    font-family: var(--font-ui);
+    font-size: calc(var(--base-font-size) * 0.5);
+    text-align: center;
+    animation: slideDown .7s ease-out 3s 2 normal forwards;
+    opacity: 0;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 }
 
 .background-container.editor-mode header .header-container .logo svg * {
