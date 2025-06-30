@@ -31,11 +31,30 @@ header .header-container {
 }
 
 .header-container .logo {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: calc(var(--base-font-size) * 0.9);
     color: var(--color-text-lighter);
+}
+
+.header-container .logo::after {
+    content: 'F';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    border: 1px solid red;
+    font-family: var(--font-ui);
+    font-size: calc(var(--base-font-size) * 0.5);
+    cursor: default;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    display: none;
 }
 
 /* TODO: Hover animation to be added */
@@ -219,14 +238,24 @@ main form #helpTitle {
     position: relative;
 }
 
-.background-container.editor-mode .toolbar section .sub-group {
+.background-container.editor-mode .toolbar section .group .sub-group {
     position: absolute;
     top: 0;
     right: calc(-100% - 10px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(calc(-100% - 10px * 1));
+    transition: all 0.3s ease-out;
+}
+
+.background-container.editor-mode .toolbar section .group .sub-group.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }
 
 .background-container.editor-mode .toolbar section,
-.background-container.editor-mode .toolbar section .sub-group {
+.background-container.editor-mode .toolbar section .group .sub-group {
     border-radius: calc(var(--base-border-radius) / 2);
     background: rgba(var(--color-nutral-rgb), 0.1);
     border: 1px solid rgba(var(--color-nutral-rgb), 0.115);
