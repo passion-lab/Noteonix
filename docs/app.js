@@ -233,7 +233,32 @@ editorTitle.addEventListener('keydown', (e) => {
     }
 })
 
+// All toggling elements in the text formatting toolbar with the "group" classname
+const groups = document.querySelectorAll('header .toolbar section .group');
 
+for (const group in groups) {
+    if (Object.prototype.hasOwnProperty.call(groups, group)) {
+        const element = groups[group];
+
+        // Add mouse-click event to all toggling elements
+        element.addEventListener('mouseup', () => {
+            // First close any open sub-groups
+            const allSubGroups = document.querySelectorAll('header .toolbar section .group .sub-group.open');
+            allSubGroups.forEach(subGroup => {
+                // Skip the current sub-group and closing other opened element's sub-group
+                if (subGroup !== element.lastElementChild) {
+                    subGroup.classList.remove('open');
+                }
+            });
+            
+            // Toggling the "open" class, opens and closes the corresponding menu with "sub-group" classname
+            element.lastElementChild.classList.toggle('open');
+            
+            // Prevent event bubbling
+            e.stopPropagation();
+        })
+    }
+}
 function format(command, value = null) {
     document.execCommand(command, true, value);
 }
