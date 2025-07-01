@@ -177,6 +177,7 @@ main form #helpTitle {
     position: sticky;
 }
 
+/* Text formatting toolbar guide down arrow */
 .background-container.editor-mode header .header-container .logo::after {
     content: '▼';
     position: absolute;
@@ -230,6 +231,16 @@ main form #helpTitle {
     position: absolute;
     left: calc(var(--base-font-size) * 1.2);
     top: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all .5s ease;
+}
+
+.background-container.editor-mode header .toolbar.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .background-container.editor-mode .toolbar section {
