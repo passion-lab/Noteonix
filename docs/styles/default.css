@@ -61,11 +61,13 @@
 .hide {
     opacity: 0;
     user-select: none;
+    pointer-events: none;
 }
 
 .unhide {
     opacity: 1;
     user-select: auto;
+    pointer-events: all;
 }
 
 .delete {
