@@ -16,6 +16,7 @@ const minY = 10; // Minimum position percentage (how high it can go)
 const scrollFactor = 10;
 const defaultFooterPosition = 80; // Default position at 80%
 const hiddenFooterPosition = 92; // Hidden position at 92%
+const saveDelay = 3000; // Content save timeout (ms) upon editor inactivity
 
 // Changable variables
 let titleLength = 0;
@@ -28,6 +29,7 @@ let touchStartY = 0; // Handle touch events for mobile
 // Essential variables
 let finalTitle;
 let finalContent;
+let saveTimer;
 
 
 // Note Title
@@ -232,6 +234,98 @@ editorTitle.addEventListener('keydown', (e) => {
     }
 })
 
+const logo = document.querySelector('.header-container .logo');
+const toolbar = document.querySelector('header .toolbar');
+let toolbarTimeout;
+
+// Function to show toolbar
+function showToolbar() {
+    // Only apply in editor mode
+    if (document.querySelector('.background-container').classList.contains('editor-mode')) {
+        toolbar.classList.add('visible');
+        clearTimeout(toolbarTimeout);
+    }
+}
+
+// Function to hide toolbar with delay
+function hideToolbarWithDelay() {
+    // Only apply in editor mode
+    if (document.querySelector('.background-container').classList.contains('editor-mode')) {
+        toolbarTimeout = setTimeout(() => {
+            toolbar.classList.remove('visible');
+        }, 5000); // 5 seconds delay
+    }
+}
+
+// Show toolbar when hovering over logo
+logo.addEventListener('mouseenter', showToolbar);
+// Start the hide timer when mouse leaves logo
+logo.addEventListener('mouseleave', hideToolbarWithDelay);
+
+// Mobile feature: long press on the logo makes the toolbar visible
+let logoTouchStartTime = 0;
+let logoTouchTimer;
+let isLongPress = false;
+
+// Mobile touch behavior - touch & hold start
+logo.addEventListener('touchstart', (e) => {
+    if (!document.querySelector('.background-container').classList.contains('editor-mode')) return;
+    
+    isLongPress = false;
+    logoTouchStartTime = Date.now();
+    
+    // Set a timer to detect long press
+    logoTouchTimer = setTimeout(() => {
+        isLongPress = true;
+        showToolbar();
+        // Visual feedback for long press
+        logo.classList.add('active');
+    }, 500); // 500ms for long press
+});
+
+// Mobile touch behavior - touch & hold end
+logo.addEventListener('touchend', (e) => {
+    if (!document.querySelector('.background-container').classList.contains('editor-mode')) return;
+    
+    clearTimeout(logoTouchTimer);
+    const touchDuration = Date.now() - logoTouchStartTime;
+    
+    // If it was a long press, prevent navigation and show toolbar
+    if (isLongPress || touchDuration > 500) {
+        e.preventDefault();
+        logo.classList.remove('active');
+    }
+    // Short taps will naturally navigate to the homepage
+});
+
+// Cancel long press if finger moves
+logo.addEventListener('touchmove', () => {
+    clearTimeout(logoTouchTimer);
+});
+
+// Prevent default click behavior when long press is detected
+logo.addEventListener('click', (e) => {
+    if (isLongPress && document.querySelector('.background-container').classList.contains('editor-mode')) {
+        e.preventDefault();
+        isLongPress = false;
+    }
+});
+
+// Keep toolbar visible when hovering over the toolbar itself
+toolbar.addEventListener('mouseenter', showToolbar);
+toolbar.addEventListener('touchstart', showToolbar);
+// Start the hide timer when mouse leaves toolbar
+toolbar.addEventListener('mouseleave', hideToolbarWithDelay);
+toolbar.addEventListener('touchend', hideToolbarWithDelay);
+
+// Hide toolbar when clicking outside (for better UX)
+document.addEventListener('click', function(e) {
+    if (!toolbar.contains(e.target) && !logo.contains(e.target)) {
+        toolbar.classList.remove('visible');
+    }
+});
+
+
 // All toggling elements in the text formatting toolbar with the "group" classname
 const groups = document.querySelectorAll('header .toolbar section .group');
 
@@ -259,6 +353,33 @@ for (const group in groups) {
         })
     }
 }
+
+function saveNotes() {
+    finalContent = noteEditor.innerHTML;
+    let currentNote = finalTitle + finalContent;
+
+    try {
+        localStorage.setItem('allNotes', currentNote);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function saveMethod() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+        saveNotes();
+        console.log(localStorage.getItem('allNotes'));
+    }, saveDelay);
+}
+
+noteEditor.addEventListener('input', () => {
+    saveMethod();
+})
+noteEditor.addEventListener('keyup', () => {
+    saveMethod();
+})
+
 function format(command, value = null) {
     document.execCommand(command, true, value);
 }
