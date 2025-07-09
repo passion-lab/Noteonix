@@ -220,8 +220,15 @@ main form #helpTitle {
     display: none;
 }
 
-.background-container.editor-mode header .header-container .logo:hover svg * {
+.background-container.editor-mode header .header-container .logo:hover svg *,
+.background-container.editor-mode header .header-container .logo.active svg * {
     fill: var(--color-accent);
+}
+
+.background-container.editor-mode header .header-container .logo.active {
+    transform: scale(0.95);
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 /* Text formatting toolbar */
